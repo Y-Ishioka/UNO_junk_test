@@ -48,6 +48,7 @@ https://x.com/YI_Studio/status/1893488568930025907
 #define BTNPIN          2
 
 ※ボタン押下時にGNDへ接続される想定。
+
 ![schem](https://github.com/Y-Ishioka/UNO_junk_test/blob/main/btn_pin.jpg)
 
 
