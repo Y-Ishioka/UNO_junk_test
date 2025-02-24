@@ -20,6 +20,10 @@ https://akizukidenshi.com/catalog/g/g116285/
 
 https://www.cytron.io/p-maker-uno-simplifying-arduino-for-education?search=MAKER-UNO&description=1
 
+◆参考資料
+
+https://akizukidenshi.com/img/contents/kairo/%E3%83%87%E3%83%BC%E3%82%BF/%E8%A1%A8%E7%A4%BA%E8%A3%85%E7%BD%AE/LED%E9%9B%BB%E5%85%89%E6%8E%B2%E7%A4%BA.pdf
+
 ◆参考情報１
 
 Maker UNOの回路図
