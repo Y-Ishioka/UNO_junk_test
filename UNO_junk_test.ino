@@ -106,6 +106,7 @@ int  pat_pos2;
 int  pat_pos3;
 int  pat_num;
 int  disp_slide;
+int  btn_flag;
 unsigned char  (*pattern_pnt)[ DEF_LED_HIGHT ][ DEF_LED_WIDTH ];
 
 static volatile  int  usec_cnt;
@@ -165,6 +166,7 @@ void setup( void )
   disp_pos = DEF_INIT_POS;
   pat_num = 0;
   disp_slide = DEF_SLIDE;
+  btn_flag = 0;
 }
 
 
@@ -174,7 +176,6 @@ void loop( void )
   int  adr;
   int  pos;
   int  btn_stat;
-  int  flag = 0;
 
   switch( pat_num ) {
   case 0:
@@ -222,8 +223,11 @@ void loop( void )
     }
 
     btn_stat = digitalRead( BTNPIN );
-    if( btn_stat == LOW && flag == 0 ) {
-        flag = 1;
+    if( btn_stat == LOW && btn_flag == 0 ) {
+      if( ++pat_num >= DEF_MAX_PAT ) {
+        pat_num = 0;
+      }
+      btn_flag = 1;
     }
 
     digitalWrite( LATPIN, 0 );
@@ -231,11 +235,8 @@ void loop( void )
     digitalWrite( LATPIN, 1 );
     usec_delay( DEF_BRIGHT_TIME );
 
-    if( flag != 0 && btn_stat == HIGH ) {
-      if( ++pat_num >= DEF_MAX_PAT ) {
-        pat_num = 0;
-      }
-      flag = 0;
+    if( btn_flag != 0 && btn_stat == HIGH ) {
+      btn_flag = 0;
     }
   }
 
