@@ -2,9 +2,9 @@
  *  Copyright(C) by Yukiya Ishioka
  */
 
-#define S1NPIN          3
-#define S2NPIN          4
-#define S3NPIN          5
+#define SIN1PIN         3
+#define SIN2PIN         4
+#define SIN3PIN         5
 #define CLKPIN          6
 #define LATPIN          7
 
@@ -129,10 +129,10 @@ void  dev_led_clr_out( void )
     int  tmpcol;
 
     for( tmpcol=0 ; tmpcol<16 ; tmpcol++ ) {
-        digitalWrite( S1NPIN, adr_tbl[0][tmpcol] );
+        digitalWrite( SIN1PIN, adr_tbl[0][tmpcol] );
 
-        digitalWrite( S2NPIN, 0 );
-        digitalWrite( S3NPIN, 0 );
+        digitalWrite( SIN2PIN, 0 );
+        digitalWrite( SIN3PIN, 0 );
 
         usec_delay( 1 );
         digitalWrite( CLKPIN, 1 );
@@ -148,16 +148,16 @@ void  dev_led_clr_out( void )
 
 void setup( void )
 {
-  pinMode( S1NPIN,  OUTPUT );
-  pinMode( S2NPIN,  OUTPUT );
-  pinMode( S3NPIN,  OUTPUT );
+  pinMode( SIN1PIN,  OUTPUT );
+  pinMode( SIN2PIN,  OUTPUT );
+  pinMode( SIN3PIN,  OUTPUT );
   pinMode( CLKPIN,  OUTPUT );
   pinMode( LATPIN,  OUTPUT );
   pinMode( BTNPIN,  INPUT_PULLUP );
 
-  digitalWrite( S1NPIN, LOW );
-  digitalWrite( S2NPIN, LOW );
-  digitalWrite( S3NPIN, LOW );
+  digitalWrite( SIN1PIN, LOW );
+  digitalWrite( SIN2PIN, LOW );
+  digitalWrite( SIN3PIN, LOW );
   digitalWrite( CLKPIN, LOW );
   digitalWrite( LATPIN, HIGH );
 
@@ -198,22 +198,22 @@ void loop( void )
   for( hi=0 ; hi<DEF_LED_HIGHT ; hi++ ) {
     for( wd=0, adr=0 ; wd<DEF_LED_WIDTH ; wd++, adr++ ) {
 
-      digitalWrite( S1NPIN, adr_tbl[hi][adr] );
+      digitalWrite( SIN1PIN, adr_tbl[hi][adr] );
 
       /* for S2N */
       pos = pat_pos2 - wd;
       if( pos >= 0 && pos < DEF_LED_WIDTH ) {
-        digitalWrite( S2NPIN, (uint8_t)(*pattern_pnt)[hi][pos] );
+        digitalWrite( SIN2PIN, (uint8_t)(*pattern_pnt)[hi][pos] );
       } else {
-        digitalWrite( S2NPIN, 0 );
+        digitalWrite( SIN2PIN, 0 );
       }
 
       /* for S3N */
       pos = pat_pos3 - wd;
       if( pos >= 0 && pos < DEF_LED_WIDTH ) {
-        digitalWrite( S3NPIN, (uint8_t)(*pattern_pnt)[hi][pos] );
+        digitalWrite( SIN3PIN, (uint8_t)(*pattern_pnt)[hi][pos] );
       } else {
-        digitalWrite( S3NPIN, 0 );
+        digitalWrite( SIN3PIN, 0 );
       }
 
       usec_delay( 1 );

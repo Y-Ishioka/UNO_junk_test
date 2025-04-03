@@ -41,11 +41,11 @@ https://x.com/YI_Studio/status/1893488568930025907
 
 マトリクスLEDモジュールと接続するピンは以下の通り。
 
-#define S1NPIN          3
+#define SIN1PIN         3
 
-#define S2NPIN          4
+#define SIN2PIN         4
 
-#define S3NPIN          5
+#define SIN3PIN         5
 
 #define CLKPIN          6
 
